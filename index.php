@@ -71,6 +71,12 @@ $estado = $_GET['estado'] ?? '';
                 </div>
             <?php endif; ?>
 
+            <?php if ($estado === 'nombre_invalido'): ?>
+                <div class="mensaje error">
+                    El nombre debe tener al menos 3 caracteres y solo letras.
+                </div>
+            <?php endif; ?>
+
             <form action="guardar.php" method="POST">
                 <div class="campo">
                     <label for="nombre">
@@ -82,6 +88,7 @@ $estado = $_GET['estado'] ?? '';
                         id="nombre"
                         name="nombre"
                         maxlength="100"
+                        minlength="3"
                         placeholder="Ejemplo: Café"
                         required
                     >

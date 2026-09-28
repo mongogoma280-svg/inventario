@@ -15,6 +15,11 @@ if ($nombre === '' || $cantidad === '') {
     exit;
 }
 
+if (mb_strlen($nombre) < 3 || !preg_match('/^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+$/u', $nombre)) {
+    header('Location: index.php?estado=nombre_invalido');
+    exit;
+}
+
 if (!is_numeric($cantidad)) {
     header('Location: index.php?estado=cantidad_invalida');
     exit;
